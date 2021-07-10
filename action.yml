@@ -1,0 +1,15 @@
+name: 'Go Code Coverage'
+description: 'Run a code coverage check for a Golang project.'
+inputs:
+  coverage-level: 
+    description: 'Minimum coverage required (%)'
+    required: true
+    default: '0'
+outputs:
+  coverage:
+    description: 'The level of coverage achieved'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.coverage-level }}
